@@ -456,141 +456,170 @@
           </p>
         </div>
 
-        <div class="mx-auto w-full">
-          <div class="relative border-l border-gray-200 ml-3 md:ml-0 md:border-none">
-            <!-- Desktop center line -->
-            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2"></div>
+        <!-- ===== NEW INTERACTIVE TIMELINE WRAPPER ===== -->
+        <div id="timeline-interactive" class="mx-auto w-full relative" style="cursor:crosshair;">
 
-            <div class="space-y-4">
-              <!-- Item 1: Submission of abstract -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="1">
-                <div class="hidden md:block w-1/2 pr-12 text-right">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Submission
-                    of abstract</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 12, 2026</p>
-                </div>
+          <!-- Canvas for glowing line (desktop only) -->
+          <canvas id="timeline-canvas" class="hidden md:block absolute inset-0 pointer-events-none"
+            style="z-index:1;"></canvas>
+
+
+
+          <!-- Items wrapper -->
+          <div class="relative" style="z-index:3;">
+            <!-- Mobile: plain left border -->
+            <div class="relative border-l border-gray-200 ml-3 md:ml-0 md:border-none">
+
+              <div class="space-y-4">
+
+                <!-- Item 1: Submission of abstract | color: green -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="1" data-color="#22c55e" data-glow="rgba(34,197,94,0.7)">
+                  <div class="hidden md:block w-1/2 pr-14 text-right">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Submission of
+                      abstract</h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#22c55e;">
+                      August 12, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Submission of abstract</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#22c55e;">August 12, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A059]">Submission of abstract</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 12, 2026</p>
-                </div>
-              </div>
-              <!-- Item 2: Intimation of acceptance -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="2">
-                <div class="hidden md:block w-1/2 pl-12 ml-auto text-left">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Intimation
-                    of acceptance</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 15, 2026</p>
-                </div>
+
+                <!-- Item 2: Intimation of acceptance | color: lime/yellow-green -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="2" data-color="#84cc16" data-glow="rgba(132,204,22,0.7)">
+                  <div class="hidden md:block w-1/2 pl-14 ml-auto text-left">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Intimation of
+                      acceptance</h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#84cc16;">
+                      August 15, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Intimation of acceptance</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#84cc16;">August 15, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A059]">Intimation of acceptance</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 15, 2026</p>
-                </div>
-              </div>
-              <!-- Item 3: Early bird registration -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="3">
-                <div class="hidden md:block w-1/2 pr-12 text-right">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Early bird
-                    registration</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 20, 2026</p>
-                </div>
+
+                <!-- Item 3: Early bird registration | color: yellow -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="3" data-color="#eab308" data-glow="rgba(234,179,8,0.7)">
+                  <div class="hidden md:block w-1/2 pr-14 text-right">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Early bird
+                      registration</h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#eab308;">
+                      August 20, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Early bird registration</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#eab308;">August 20, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A050]">Early bird registration</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 20, 2026</p>
-                </div>
-              </div>
-              <!-- Item 4: Late Bird Registration -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="3">
-                <div class="hidden md:block w-1/2 pl-12 ml-auto text-left">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Late Bird
-                    Registration</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 25, 2026</p>
-                </div>
+
+                <!-- Item 4: Late Bird Registration | color: orange -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="3" data-color="#f97316" data-glow="rgba(249,115,22,0.7)">
+                  <div class="hidden md:block w-1/2 pl-14 ml-auto text-left">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Late Bird
+                      Registration</h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#f97316;">
+                      August 25, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Late Bird Registration</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#f97316;">August 25, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A059]">Late Bird Registration</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 25, 2026</p>
-                </div>
-              </div>
-              <!-- Item 5: Submission of full paper -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="4">
-                <div class="hidden md:block w-1/2 pr-12 text-right">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Submission
-                    of full paper</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 31, 2026</p>
-                </div>
+
+                <!-- Item 5: Submission of full paper | color: red -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="4" data-color="#ef4444" data-glow="rgba(239,68,68,0.7)">
+                  <div class="hidden md:block w-1/2 pr-14 text-right">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Submission of full
+                      paper</h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#ef4444;">
+                      August 31, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Submission of full paper</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#ef4444;">August 31, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A059]">Submission of full paper</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">August 31, 2026</p>
-                </div>
-              </div>
-              <!-- Item 6: Conclave Dates -->
-              <div
-                class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between group reveal"
-                data-delay="5">
-                <div class="hidden md:block w-1/2 pl-12 ml-auto text-left">
-                  <h3 class="text-xl font-bold text-[#381018] transition-colors group-hover:text-[#C5A059]">Conclave
-                    Dates</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">September 8-9, 2026</p>
-                </div>
+
+                <!-- Item 6: Conclave Dates | color: gold -->
                 <div
-                  class="timeline-node absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 flex h-3 w-3 items-center justify-center rounded-full bg-white ring-4 z-10 transition-shadow duration-300"
-                  style="--tw-ring-color:#FAFAFA;">
-                  <div
-                    class="timeline-dot h-2.5 w-2.5 rounded-full transition-colors duration-300 bg-gray-200 border-2 border-gray-300">
+                  class="tl-item relative flex flex-col md:flex-row items-start md:items-center justify-between reveal"
+                  data-delay="5" data-color="#d4af37" data-glow="rgba(212,175,55,0.85)">
+                  <div class="hidden md:block w-1/2 pl-14 ml-auto text-left">
+                    <h3 class="tl-title text-xl font-bold text-[#381018] transition-all duration-300">Conclave Dates
+                    </h3>
+                    <p class="tl-date mt-1 text-sm font-semibold transition-all duration-300" style="color:#d4af37;">
+                      September 8-9, 2026</p>
+                  </div>
+                  <div class="tl-node-wrap absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 z-10"
+                    style="top:50%;transform:translateY(-50%) translateX(-50%);">
+                    <div class="tl-node flex items-center justify-center rounded-full transition-all duration-400"
+                      style="width:14px;height:14px;background:#fff;border:2px solid #d1d5db;box-shadow:none;">
+                      <div class="tl-dot rounded-full transition-all duration-400"
+                        style="width:8px;height:8px;background:#d1d5db;"></div>
+                    </div>
+                  </div>
+                  <div class="pl-8 md:hidden">
+                    <h3 class="text-xl font-bold text-[#381018]">Conclave Dates</h3>
+                    <p class="mt-1 text-sm font-semibold" style="color:#d4af37;">September 8-9, 2026</p>
                   </div>
                 </div>
-                <div class="pl-8 md:hidden">
-                  <h3 class="text-xl font-bold text-[#381018] group-hover:text-[#C5A059]">Conclave Dates</h3>
-                  <p class="mt-1 text-sm font-semibold text-[#C5A059]">September 8-9, 2026</p>
-                </div>
-              </div>
+
+              </div><!-- /space-y-4 -->
             </div>
-          </div>
-        </div>
+          </div><!-- /z-index:3 -->
+        </div><!-- /#timeline-interactive -->
 
         <!-- Paper Submission Box -->
         <div id="submit"
