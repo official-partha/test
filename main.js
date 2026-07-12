@@ -1,22 +1,23 @@
 /* ============================================================
    SSC 2026 – Main JavaScript
    Vidyasagar University Social Science Conclave
+   Created by Partha Ghosh, officialparthaghosh@gmail.com, 2026
    ============================================================ */
 
 // ---- Scroll Progress Bar ----
 const progressBar = document.getElementById('scroll-progress');
 function updateProgress() {
-  const scrollTop  = window.scrollY;
-  const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
-  const progress   = docHeight > 0 ? scrollTop / docHeight : 0;
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? scrollTop / docHeight : 0;
   progressBar.style.transform = `scaleX(${progress})`;
 }
 
 // ---- Navbar scroll behaviour ----
-const navbar       = document.getElementById('navbar');
+const navbar = document.getElementById('navbar');
 const mobileToggle = document.getElementById('mobile-toggle');
-const mobileMenu   = document.getElementById('mobile-menu');
-const menuIconOpen  = document.getElementById('menu-icon-open');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIconOpen = document.getElementById('menu-icon-open');
 const menuIconClose = document.getElementById('menu-icon-close');
 
 function updateNavbar() {
@@ -57,13 +58,13 @@ document.addEventListener('mousemove', (e) => {
 const particlesContainer = document.getElementById('particles-container');
 if (particlesContainer) {
   for (let i = 0; i < 30; i++) {
-    const p   = document.createElement('div');
+    const p = document.createElement('div');
     p.className = 'particle';
-    const left  = Math.random() * 100;
-    const top   = Math.random() * 100;
-    const dur   = (Math.random() * 5 + 5).toFixed(1) + 's';
+    const left = Math.random() * 100;
+    const top = Math.random() * 100;
+    const dur = (Math.random() * 5 + 5).toFixed(1) + 's';
     const delay = (Math.random() * 5).toFixed(1) + 's';
-    const dx    = ((Math.random() - 0.5) * 100).toFixed(0) + 'px';
+    const dx = ((Math.random() - 0.5) * 100).toFixed(0) + 'px';
     p.style.cssText = `left:${left}%;top:${top}%;--dur:${dur};--delay:${delay};--dx:${dx};`;
     particlesContainer.appendChild(p);
   }
@@ -76,28 +77,28 @@ document.querySelectorAll('.ripple-btn').forEach(btn => {
 
   btn.addEventListener('mouseenter', (e) => {
     const rect = btn.getBoundingClientRect();
-    circle.style.left       = (e.clientX - rect.left) + 'px';
-    circle.style.top        = (e.clientY - rect.top)  + 'px';
+    circle.style.left = (e.clientX - rect.left) + 'px';
+    circle.style.top = (e.clientY - rect.top) + 'px';
     circle.style.transition = 'transform 0.8s ease-out';
-    circle.style.transform  = 'scale(1) translate(-50%, -50%)';
+    circle.style.transform = 'scale(1) translate(-50%, -50%)';
   });
 
   btn.addEventListener('mousemove', (e) => {
     const rect = btn.getBoundingClientRect();
     circle.style.transition = 'transform 0.8s ease-out';
     circle.style.left = (e.clientX - rect.left) + 'px';
-    circle.style.top  = (e.clientY - rect.top)  + 'px';
+    circle.style.top = (e.clientY - rect.top) + 'px';
   });
 
   btn.addEventListener('mouseleave', () => {
     circle.style.transition = 'transform 0.3s ease-out';
-    circle.style.transform  = 'scale(0) translate(-50%, -50%)';
+    circle.style.transform = 'scale(0) translate(-50%, -50%)';
   });
 });
 
 // ---- Scroll Reveal (IntersectionObserver) ----
 const revealEls = document.querySelectorAll('.reveal, .reveal-left');
-const observer  = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
