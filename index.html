@@ -674,8 +674,8 @@
                   </th>
                   <th scope="col"
                     class="px-6 py-3 sm:py-4 font-semibold text-base whitespace-nowrap border-l border-white/20">
-                    Registration Fees<br />
-                    <span class="text-sm font-normal text-gray-300">(after early bird closes till 31st August,
+                    Late Bird Registration Fees<br />
+                    <span class="text-sm font-normal text-gray-300">(after early bird closes till 25th August,
                       2026)</span>
                   </th>
                 </tr>
@@ -727,14 +727,23 @@
                 <li><span class="font-medium">Swift Code:</span> UCBAINDB102</li>
               </ul>
               <p class="mt-6 text-sm text-gray-500 italic border-t pt-4 border-gray-200">
-                * Note: The proof of payment is to be produced at the time of registration. Spot registration is not allowed.
+                * Note: The proof of payment is to be produced at the time of registration. Spot registration is not
+                allowed.
               </p>
             </div>
             <!-- QR Code -->
-            <div class="flex flex-col items-center justify-center bg-gray-50 rounded-2xl p-8 border border-gray-100 md:w-96 shrink-0">
+            <div
+              class="flex flex-col items-center justify-center bg-gray-50 rounded-2xl p-8 border border-gray-100 md:w-96 shrink-0">
               <p class="text-base font-semibold text-[#381018] mb-4 uppercase tracking-wider">Scan to Pay (UPI)</p>
-              <img src="images/QR.png" alt="UPI QR Code" class="w-80 h-80 object-contain rounded-xl shadow-md" />
+              <img id="qr-img" src="images/QR.png" alt="UPI QR Code"
+                class="w-80 h-80 object-contain rounded-xl shadow-md" />
               <p class="mt-4 text-sm text-gray-500 text-center">Scan the QR code with any UPI app to make payment</p>
+              <!-- Full Screen Button -->
+              <button id="qr-fullscreen-btn" onclick="openQrModal()"
+                class="mt-4 inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-[#381018] text-white hover:bg-[#C5A059] transition-colors duration-200 shadow-md hover:shadow-lg active:scale-95">
+                <i class="bi bi-fullscreen"></i>
+                Full Screen
+              </button>
             </div>
           </div>
         </div>
@@ -954,33 +963,34 @@
           </p>
         </div>
 
-        <div class="mx-auto mt-6 grid w-full grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+        <div class="mx-auto mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
           <!-- Contact 1 -->
           <div
             class="contact-card flex flex-col rounded-3xl p-[2px] shadow-sm transition-all hover:shadow-xl relative overflow-hidden group hover-lift reveal"
             data-delay="1">
             <div class="spin-border-conic"></div>
             <div
-              class="relative z-10 bg-white h-full w-full rounded-[22px] p-8 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
+              class="relative z-10 bg-white h-full w-full rounded-[22px] p-5 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
               <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <i class="bi bi-person text-[#381018] text-8xl"></i>
               </div>
-              <h3 class="text-xl font-semibold text-[#381018] mb-1">Dr. .............................</h3>
-              <p class="text-sm font-medium text-[#C5A059] mb-6">Professor, Vidyasagar University</p>
-              <div class="mt-auto flex flex-col gap-4 text-sm text-gray-600">
+              <h3 class="text-xl font-semibold text-[#381018] mb-1">Prof. Nilanjana Das Chatterjee</h3>
+              <p class="text-sm font-medium text-[#C5A059] mb-2">Department of Geography, Vidyasagar University</p>
+              <div class="mt-3 flex flex-col gap-3 text-sm text-gray-600">
                 <div class="flex items-center gap-3">
                   <div
                     class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
                     <i class="bi bi-telephone text-gray-500 group-hover:text-[#C5A059]"></i>
                   </div>
-                  <span>+91 ...........</span>
+                  <span>7407300368</span>
                 </div>
                 <div class="flex items-center gap-3">
                   <div
                     class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
                     <i class="bi bi-envelope text-gray-500 group-hover:text-[#C5A059]"></i>
                   </div>
-                  <span>...............@mail.vidyasagar.ac.in</span>
+                  <a href="mailto:nilanjana_vu@mail.vidyasagar.ac.in"
+                    class="hover:text-[#C5A059] transition-colors">nilanjana_vu@mail.vidyasagar.ac.in</a>
                 </div>
               </div>
             </div>
@@ -991,27 +1001,29 @@
             data-delay="2">
             <div class="spin-border-conic"></div>
             <div
-              class="relative z-10 bg-white h-full w-full rounded-[22px] p-8 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
+              class="relative z-10 bg-white h-full w-full rounded-[22px] p-5 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
               <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <i class="bi bi-person text-[#381018] text-8xl"></i>
               </div>
-              <h3 class="text-xl font-semibold text-[#381018] mb-1">Dr. .............................</h3>
-              <p class="text-sm font-medium text-[#C5A059] mb-6">Professor, Vidyasagar University</p>
-              <div class="mt-auto flex flex-col gap-4 text-sm text-gray-600">
+              <h3 class="text-xl font-semibold text-[#381018] mb-1">Dr. Pinaki Das</h3>
+              <p class="text-sm font-medium text-[#C5A059] mb-2">Department of Economics, Vidyasagar University</p>
+              <div class="mt-3 flex flex-col gap-3 text-sm text-gray-600">
                 <div class="flex items-center gap-3">
                   <div
                     class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
                     <i class="bi bi-telephone text-gray-500 group-hover:text-[#C5A059]"></i>
                   </div>
-                  <span>+91 ...........</span>
+                  <span>9732503212</span>
                 </div>
                 <div class="flex items-center gap-3">
                   <div
                     class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
                     <i class="bi bi-envelope text-gray-500 group-hover:text-[#C5A059]"></i>
                   </div>
-                  <span>...............@mail.vidyasagar.ac.in</span>
+                  <a href="mailto:pdasvu@mail.vidyasagar.ac.in"
+                    class="hover:text-[#C5A059] transition-colors">pdasvu@mail.vidyasagar.ac.in</a>
                 </div>
+
               </div>
             </div>
           </div>
@@ -1021,33 +1033,68 @@
             data-delay="3">
             <div class="spin-border-conic"></div>
             <div
-              class="relative z-10 bg-white h-full w-full rounded-[22px] p-8 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
+              class="relative z-10 bg-white h-full w-full rounded-[22px] p-5 flex flex-col ring-1 ring-gray-200 group-hover:ring-transparent transition-all">
               <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                 <i class="bi bi-person text-[#381018] text-8xl"></i>
               </div>
-              <h3 class="text-xl font-semibold text-[#381018] mb-1">Dr. .............................</h3>
-              <p class="text-sm font-medium text-[#C5A059] mb-6">Professor, Vidyasagar University</p>
-              <div class="mt-auto flex flex-col gap-4 text-sm text-gray-600">
+              <h3 class="text-xl font-semibold text-[#381018] mb-1">Dr. Abhijit Sinha</h3>
+              <p class="text-sm font-medium text-[#C5A059] mb-2">Department of Commerce, Vidyasagar University</p>
+              <div class="mt-auto mb-auto flex flex-col gap-3 text-sm text-gray-600">
                 <div class="flex items-center gap-3">
                   <div
                     class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
                     <i class="bi bi-telephone text-gray-500 group-hover:text-[#C5A059]"></i>
                   </div>
-                  <span>+91 ...........</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#C5A059]/40 group-hover:bg-[#faf4e1] transition-colors">
-                    <i class="bi bi-envelope text-gray-500 group-hover:text-[#C5A059]"></i>
-                  </div>
-                  <span>...............@mail.vidyasagar.ac.in</span>
+                  <span>9433307607</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- Info Email Line -->
+        <p class="mt-8 text-center text-base text-gray-600 reveal" data-delay="3">
+          For any information/clarification, send mail to
+          <a href="mailto:sscvu@mail.vidyasagar.ac.in"
+            class="font-semibold text-[#C5A059] hover:text-[#381018] underline underline-offset-2 transition-colors">sscvu@mail.vidyasagar.ac.in</a>
+        </p>
       </div>
     </section>
+
+    <!-- ==================== QR FULLSCREEN MODAL ==================== -->
+    <div id="qr-modal" class="hidden fixed left-0 right-0 bottom-0 z-[996] flex items-center justify-center"
+      style="background: rgba(0,0,0,0.88); backdrop-filter: blur(6px);">
+      <!-- Close overlay (background click) -->
+      <div class="absolute inset-0" onclick="closeQrModal()"></div>
+      <!-- Modal content -->
+      <div class="relative z-10 flex flex-col items-center px-4">
+        <!-- Outer wrapper: positions close button relative to the glow card -->
+        <div class="relative" style="display:inline-block;">
+          <!-- QR wrapper: overflow:hidden clips the spinning gradient to just the border -->
+          <div id="qr-modal-wrapper" class="relative rounded-2xl p-[3px] overflow-hidden" style="display:inline-block;">
+            <!-- Spinning conic glow layer (clipped by overflow:hidden to thin border) -->
+            <div style="
+              position: absolute;
+              inset: -100%;
+              animation: spinBorder 3s linear infinite;
+              background: conic-gradient(from 90deg at 50% 50%, transparent 0%, #d4af37 60%, transparent 100%);
+              border-radius: 999px;
+              z-index: 0;
+            "></div>
+            <!-- QR Image sits on top, z-index:10 -->
+            <img src="images/QR.png" alt="UPI QR Code" class="relative z-10 block rounded-xl shadow-2xl"
+              style="max-height: calc(100vh - var(--navbar-h, 70px) - 100px); max-width: 85vw; width: auto; height: auto;" />
+          </div>
+          <!-- Close button: outside overflow:hidden so it is NOT clipped -->
+          <button onclick="closeQrModal()"
+            class="absolute -top-3 -right-3 z-20 w-9 h-9 rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl text-base font-bold
+                   transition-all duration-150 hover:bg-red-500 hover:scale-110 active:scale-90 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1"
+            title="Close">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <p class="mt-5 text-white text-base font-medium tracking-wide">Scan to Pay (UPI)</p>
+      </div>
+    </div>
 
   </main>
 
@@ -1061,6 +1108,25 @@
   </footer>
 
   <!-- Site JavaScript (deferred so DOM is ready) -->
+  <script>
+    function openQrModal() {
+      var navbar = document.getElementById('navbar');
+      var navH = navbar ? navbar.getBoundingClientRect().height : 64;
+      var modal = document.getElementById('qr-modal');
+      modal.style.top = navH + 'px';
+      document.documentElement.style.setProperty('--navbar-h', navH + 'px');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeQrModal() {
+      document.getElementById('qr-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeQrModal();
+    });
+  </script>
   <script src="main.js" defer></script>
 </body>
 
